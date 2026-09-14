@@ -17,7 +17,7 @@ jobs:
 
       - name: Code Coverage using SonarQube
         run: >
-          mvn sonar:sonar
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:5.2.0.4988:sonar
           -Dsonar.projectKey=ashwin-demo-aug2026_sonarqube-actions-project
           -Dsonar.host.url=https://sonarcloud.io/
           -Dsonar.organization=ashwin-demo-aug2026
