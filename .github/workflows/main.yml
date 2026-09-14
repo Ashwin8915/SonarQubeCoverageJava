@@ -18,21 +18,21 @@ jobs:
       - name: Build the code using maven
         run: mvn clean package
 
-  job_sonar:
+   job_sonar:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code on runner VM
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '17'
           distribution: 'temurin'
 
       - name: Code Coverage using SonarQube
         run: >
-          mvn -B verify sonar:sonar
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:5.2.0.4988:sonar
           -Dsonar.projectKey=ashwin-demo-aug2026_sonarqube-actions-project
           -Dsonar.host.url=https://sonarcloud.io/
           -Dsonar.organization=ashwin-demo-aug2026
